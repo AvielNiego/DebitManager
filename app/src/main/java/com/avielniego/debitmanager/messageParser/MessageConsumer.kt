@@ -1,5 +1,5 @@
 package com.avielniego.debitmanager.messageParser
 
-class MessageConsumer {
+class MessageConsumer(message: Message, debitStorage: DebitStorage) {
 
 }
