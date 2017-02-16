@@ -1,3 +1,6 @@
-<resources>
-    <string name="app_name">DebitManager</string>
+<resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
+    <string name="app_name" translatable="false">DebitManager</string>
+    <string name="content_authority" translatable="false">com.avielniego.debitmanager</string>
+
+    <string name="money_sign">"₪<xliff:g id="sum">%1$s</xliff:g>"</string>
 </resources>

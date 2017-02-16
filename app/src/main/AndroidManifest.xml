@@ -31,6 +31,14 @@
             android:name=".databaseAccess.DebitProvider"
             android:exported="false"
             android:syncable="true"/>
+
+        <receiver android:name=".widget.DebitWidgetProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider" />
+        </receiver>
     </application>
 
 </manifest>
