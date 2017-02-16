@@ -19,7 +19,7 @@ class SmsListener : BroadcastReceiver() {
 
     private fun parseMessages(context: Context, smsMessages: Array<SmsMessage>) {
         smsMessages
-                .map { MasterCardParser(Message(it.originatingAddress, it.messageBody)).parse() }
+                .map { MasterCardParser().parse(Message(it.originatingAddress, it.messageBody)) }
                 .forEach { Toast.makeText(context, it.toString(), Toast.LENGTH_LONG).show() }
     }
 }
