@@ -8,6 +8,7 @@ import android.telephony.SmsMessage
 import com.avielniego.debitmanager.databaseAccess.DebitDbStorage
 import com.avielniego.debitmanager.messageParser.Message
 import com.avielniego.debitmanager.messageParser.MessageConsumer
+import com.avielniego.debitmanager.widget.DebitWidgetProvider
 
 
 class SmsListener : BroadcastReceiver() {
@@ -21,5 +22,6 @@ class SmsListener : BroadcastReceiver() {
         val consumer = MessageConsumer(DebitDbStorage(context))
         smsMessages.map { Message(it.originatingAddress, it.messageBody) }
                 .forEach { consumer.consume(it) }
+        DebitWidgetProvider.update(context)
     }
 }
