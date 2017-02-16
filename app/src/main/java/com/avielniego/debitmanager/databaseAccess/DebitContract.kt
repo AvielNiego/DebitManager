@@ -23,10 +23,11 @@ class DebitContract {
             val COLUMN_SUM = "sum"
             val COLUMN_BUSINESS_NAME = "business_name"
 
-            val CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_DEBIT).build()
+            val CONTENT_URI: Uri = BASE_CONTENT_URI.buildUpon().appendPath(PATH_DEBIT).build()
 
             val CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_DEBIT
             val CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_DEBIT
+
             fun buildUri(id: Long): Uri = ContentUris.withAppendedId(CONTENT_URI, id)
         }
     }

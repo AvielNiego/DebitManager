@@ -3,7 +3,6 @@
     package="com.avielniego.debitmanager">
 
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-feature android:name="android.hardware.telephony" />
 
     <application
