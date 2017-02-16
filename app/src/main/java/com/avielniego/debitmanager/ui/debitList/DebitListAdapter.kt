@@ -12,8 +12,8 @@ import java.text.NumberFormat
 class DebitListAdapter(debits: List<Debit> = emptyList()): RecyclerView.Adapter<DebitListAdapter.ViewHolder>() {
 
     var debits = debits
-        set(debits) {
-            this.debits = debits
+        set(value) {
+            field = value
             notifyDataSetChanged()
         }
 
