@@ -31,7 +31,7 @@ class DebitDbStorage(private val context: Context) : DebitStorage {
 
     private fun mapCursorToDebits(c: Cursor): List<Debit> {
         val debits: MutableList<Debit> = mutableListOf()
-        c.moveToFirst()
+        if (!c.moveToFirst()) return emptyList()
         do{
             debits.add(createDebitFromCurrentCursorPosition(c))
         } while (c.moveToNext())

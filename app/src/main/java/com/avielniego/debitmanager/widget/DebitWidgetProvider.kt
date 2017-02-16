@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.widget.RemoteViews
 import com.avielniego.debitmanager.R
+import com.avielniego.debitmanager.databaseAccess.DebitDbStorage
 import java.text.NumberFormat
 
 class DebitWidgetProvider : AppWidgetProvider() {
@@ -15,7 +16,8 @@ class DebitWidgetProvider : AppWidgetProvider() {
 
     private fun setSumToWidget(appWidgetManager: AppWidgetManager, context: Context, widgetId: Int) {
         val r = RemoteViews(context.packageName, R.layout.widget)
-        r.setTextViewText(R.id.total_sum, formatSumString(context, 5000))
+        val sum = DebitDbStorage(context).getAll().map { it.sum }.sum()
+        r.setTextViewText(R.id.total_sum, formatSumString(context, sum))
         appWidgetManager.updateAppWidget(widgetId, r)
     }
 
