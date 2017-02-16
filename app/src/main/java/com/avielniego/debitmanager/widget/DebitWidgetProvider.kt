@@ -13,13 +13,6 @@ import com.avielniego.debitmanager.ui.MainActivity
 import java.text.NumberFormat
 
 
-
-
-
-
-
-
-
 class DebitWidgetProvider : AppWidgetProvider() {
 
     companion object {
