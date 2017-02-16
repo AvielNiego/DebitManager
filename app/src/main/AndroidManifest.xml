@@ -3,7 +3,7 @@
     package="com.avielniego.debitmanager">
 
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-feature android:name="android.hardware.telephony" />
 
     <application
@@ -26,6 +26,12 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
+
+        <provider
+            android:authorities="@string/content_authority"
+            android:name=".databaseAccess.DebitProvider"
+            android:exported="false"
+            android:syncable="true"/>
     </application>
 
 </manifest>
