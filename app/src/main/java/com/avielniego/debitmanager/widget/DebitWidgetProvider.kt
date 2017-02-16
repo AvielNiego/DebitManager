@@ -2,13 +2,31 @@ package com.avielniego.debitmanager.widget
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
+import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
 import android.widget.RemoteViews
 import com.avielniego.debitmanager.R
 import com.avielniego.debitmanager.databaseAccess.DebitDbStorage
 import java.text.NumberFormat
 
+
+
+
+
 class DebitWidgetProvider : AppWidgetProvider() {
+
+    companion object {
+        fun update(context: Context) {
+            val intent = Intent(context, DebitWidgetProvider::class.java)
+            intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
+            val ids = AppWidgetManager.getInstance(context.applicationContext)
+                    .getAppWidgetIds(ComponentName(context, DebitWidgetProvider::class.java))
+            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
+            context.sendBroadcast(intent)
+        }
+    }
+
     override fun onUpdate(context: Context?, appWidgetManager: AppWidgetManager?, appWidgetIds: IntArray?) {
         if (context == null || appWidgetManager == null || appWidgetIds == null) return
         appWidgetIds.forEach { setSumToWidget(appWidgetManager, context, it) }
