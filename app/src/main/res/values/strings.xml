@@ -3,4 +3,6 @@
     <string name="content_authority" translatable="false">com.avielniego.debitmanager</string>
 
     <string name="money_sign">"₪<xliff:g id="sum">%1$s</xliff:g>"</string>
+    <string name="add_debit_description">Description</string>
+    <string name="debit_sum">Sum</string>
 </resources>

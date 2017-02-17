@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    android:id="@+id/debit_list_frame_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/debit_recycler_view"
-        android:name="com.avielniego.debitmanager.ui.debitList.DebitListFragment"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp"
-        app:layoutManager="LinearLayoutManager"
-        tools:context=".ui.debitList.DebitListFragment"
-        tools:listitem="@layout/debit_list_item" />
+        android:layout_height="match_parent">
 
-</LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/debit_recycler_view"
+            android:name="com.avielniego.debitmanager.ui.debitList.DebitListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            app:layoutManager="LinearLayoutManager"
+            tools:context=".ui.debitList.DebitListFragment"
+            tools:listitem="@layout/debit_list_item" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add_debit_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_add_white_24px" />
+
+    </android.support.design.widget.CoordinatorLayout>
+</FrameLayout>

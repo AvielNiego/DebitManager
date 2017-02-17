@@ -1,6 +1,8 @@
 package com.avielniego.debitmanager.ui.debitList
 
+import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -9,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.avielniego.debitmanager.R
 import com.avielniego.debitmanager.messageParser.Debit
+import com.avielniego.debitmanager.ui.AddDebitActivity
 
 class DebitListFragment: Fragment() {
 
@@ -38,6 +41,7 @@ class DebitListFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater!!.inflate(R.layout.debit_list_fragment, container, false)
         initRecyclerView(v)
+        initFab(v)
         return v
     }
 
@@ -45,6 +49,11 @@ class DebitListFragment: Fragment() {
         val recyclerView = v.findViewById(R.id.debit_recycler_view) as RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(recyclerView.context)
         recyclerView.adapter = debitListAdapter
+    }
+
+    private fun initFab(v: View) {
+        val fab = v.findViewById(R.id.add_debit_fab) as FloatingActionButton
+        fab.setOnClickListener { startActivity(Intent(context, AddDebitActivity::class.java)) }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

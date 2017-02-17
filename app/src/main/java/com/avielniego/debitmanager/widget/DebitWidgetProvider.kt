@@ -9,7 +9,7 @@ import android.content.Intent
 import android.widget.RemoteViews
 import com.avielniego.debitmanager.R
 import com.avielniego.debitmanager.databaseAccess.DebitDbStorage
-import com.avielniego.debitmanager.ui.MainActivity
+import com.avielniego.debitmanager.ui.AddDebitActivity
 import java.text.NumberFormat
 
 
@@ -39,7 +39,7 @@ class DebitWidgetProvider : AppWidgetProvider() {
     }
 
     private fun setWidgetClickListener(appWidgetManager: AppWidgetManager, context: Context, widgetId: Int) {
-        val pendingIntent = PendingIntent.getActivity(context, 0, Intent(context, MainActivity::class.java), 0)
+        val pendingIntent = PendingIntent.getActivity(context, 0, Intent(context, AddDebitActivity::class.java), 0)
         val views = RemoteViews(context.packageName, R.layout.current_sum_widget)
         views.setOnClickPendingIntent(R.id.widget_frame_layout, pendingIntent)
         appWidgetManager.updateAppWidget(widgetId, views)
